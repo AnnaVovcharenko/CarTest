@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { addFavorite, deleteFavorete } from "../../redux/carsSlice";
 
 
-export const CarGalleryItem = ({advert, id, img, make, model, rentalPrice,  rentalCompany, type, year, engineSize, })=> {
+export const CarGalleryItem = ({ id, img, make, model, rentalPrice, address, rentalCompany, type, year, engineSize, })=> {
     
 
   const [showModal, setShovModal] = useState(false);
@@ -44,9 +44,9 @@ export const CarGalleryItem = ({advert, id, img, make, model, rentalPrice,  rent
           </div>
           <div>
             <div>
-              <p aria-label="City">{advert.address.split(", ").map(part => part.trim(),[1]}</p>
+              <p aria-label="City">{address}</p>
               {/* <Divider /> */}
-              <p aria-label="Contry">{advert.address.split(", ").map(part => part.trim(),[2]}</p>
+              <p aria-label="Contry">{address}</p>
               {/* <Divider /> */}
               <p aria-label="Rental Company">{rentalCompany}</p>
             </div>
@@ -100,3 +100,7 @@ CarGalleryItem.propTypes = {
 
 
   };
+
+
+  //.split(" ")[1]
+  //.split(" ")[2]

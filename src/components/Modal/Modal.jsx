@@ -22,7 +22,7 @@ const customStyles = {
   },
 };
 
-export const ModalWindow = ({props: { isOpen, onRequestClose, largeImageURL, tags }}) => {
+export const ModalWindow = ({ isOpen, onRequestClose, largeImageURL, tags }) => {
     
     return (
       <div>
@@ -40,5 +40,9 @@ export const ModalWindow = ({props: { isOpen, onRequestClose, largeImageURL, tag
 
 
   ModalWindow.propTypes = {
-    props: PropTypes.string
+    props: PropTypes.string,
+    isOpen: PropTypes.bool,
+    onRequestClose: PropTypes.string,
+    largeImageURL: PropTypes.string,
+    tags: PropTypes.string,
   }
