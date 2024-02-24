@@ -11,9 +11,9 @@ export const App = () => {
       
 {/* <Route path="catalog" element={<CatalogPage />} /> */}
 
-      <Route path="/">
+      <Route path="/" element={<CatalogPage />}  >
         {/* <Route index element={<Home />} /> */}
-        <Route path="catalog" element={<CatalogPage />} />
+        {/* <Route path="catalog" element={<CatalogPage />} /> */}
         {/* <Route path="favorites" element={<Favorites />} /> */}
         {/* <Route path="*" element={<Navigate to={"/"} />} /> */}
       </Route>

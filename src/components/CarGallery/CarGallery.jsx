@@ -51,11 +51,11 @@ const handleLoadMore = () => {
           Search
         </button>
       </div>
-      <dev>
+      <div>
         {filter
           ? filterCar.map((car) => <CarGalleryItem key={car.id} car={car} />)
           : cars.map((car) => <CarGalleryItem key={car.id} car={car} />)}
-      </dev>
+      </div>
       <button
         onClick={handleLoadMore}
         disabled={isLoading}        

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { addFavorite, deleteFavorete } from "../../redux/carsSlice";
 
 
-export const CarGalleryItem = ({advert})=> {
+export const CarGalleryItem = ({advert, id, img, make, model, rentalPrice,  rentalCompany, type, year, engineSize, })=> {
     
 
   const [showModal, setShovModal] = useState(false);
@@ -19,14 +19,14 @@ export const CarGalleryItem = ({advert})=> {
 
   const dispatch = useDispatch();
   const inFavorites = useSelector((state) =>
-    state.adverts.favorites.includes(advert.id)
+    state.adverts.favorites.includes(id)
   );
 
   const clickFavorite = () => {
     if (inFavorites) {
-      dispatch(deleteFavorete(advert.id));
+      dispatch(deleteFavorete(id));
     } else {
-      dispatch(addFavorite(advert.id));
+      dispatch(addFavorite(id));
     }
   };
 
@@ -34,30 +34,30 @@ export const CarGalleryItem = ({advert})=> {
   return (
     <>
       <li>
-        <img src={advert.img} alt={"car image"} height="268" />
+        <img src={img} alt={"car image"} height="268" />
         <div>
           <div>
             <p>
-              {advert.make} <span style={{ color: "#3470FF" }}>{advert.model}</span>, 2019
+              {make} <span style={{ color: "#3470FF" }}>{model}</span>, 2019
             </p>
-            <p>{advert.rentalPrice}</p>
+            <p>{rentalPrice}</p>
           </div>
           <div>
             <div>
-              <p aria-label="City">{advert.address.split(", ")[1]}</p>
+              <p aria-label="City">{advert.address.split(", ").map(part => part.trim(),[1]}</p>
               {/* <Divider /> */}
-              <p aria-label="Contry">{advert.address.split(", ")[2]}</p>
+              <p aria-label="Contry">{advert.address.split(", ").map(part => part.trim(),[2]}</p>
               {/* <Divider /> */}
-              <p aria-label="Rental Company">{advert.rentalCompany}</p>
+              <p aria-label="Rental Company">{rentalCompany}</p>
             </div>
             <div>
-              <p aria-label="ID">{advert.id}</p>
+              <p aria-label="ID">{id}</p>
               {/* <Divider /> */}
-              <p aria-label="Car type">{advert.type}</p>
+              <p aria-label="Car type">{type}</p>
               {/* <Divider /> */}
-              <p aria-label="Model Year">{advert.year}</p>
+              <p aria-label="Model Year">{year}</p>
               {/* <Divider /> */}
-              <p aria-label="Engine size">{advert.engineSize}</p>
+              <p aria-label="Engine size">{engineSize}</p>
             </div>
           </div>
         </div>
@@ -85,5 +85,18 @@ export const CarGalleryItem = ({advert})=> {
 
 
 CarGalleryItem.propTypes = {
-    advert: PropTypes.string
+    advert: PropTypes.string,
+    id: PropTypes.string,
+    img: PropTypes.string,
+    make: PropTypes.string,
+    model: PropTypes.string,
+    rentalPrice: PropTypes.string,
+    address: PropTypes.string,
+    rentalCompany: PropTypes.string,
+    type: PropTypes.string,
+    year: PropTypes.string,
+    engineSize: PropTypes.string,
+    
+
+
   };
