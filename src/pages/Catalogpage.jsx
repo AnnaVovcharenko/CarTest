@@ -1,11 +1,11 @@
 import { CarGallery } from "../components/CarGallery/CarGallery.jsx";
+import { TitleAuto } from "../components/CarGalleryItem/CarGalleryItem.styled.jsx";
 
-
-const CatalogPage = () => {
+export const CatalogPage = () => {
     return (
       <>       
         <CarGallery />
       </>
     );
   };
-  export default CatalogPage;
+ 

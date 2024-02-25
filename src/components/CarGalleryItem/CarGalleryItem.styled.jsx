@@ -7,6 +7,24 @@ export const Container = styled.div`
   position: relative;
 `;
 
+
+export const ContainerD = styled.div`
+padding-left: 15px;
+padding-right: 15px;
+padding-bottom: 50px;
+background-color: #ffffff;
+padding-top: 50px;
+display: flex;
+justify-content: center;
+flex-direction: column;
+align-items: center;
+`;
+
+
+
+
+
+
 export const ImageAuto = styled.img`
   width: 274px;
   height: 268px;
@@ -53,7 +71,7 @@ export const FavoriteBtn = styled.button`
 `;
 
 export const Heart = styled.svg`
-  stroke: var(--white-color);
+  stroke: var(--blue-color);
   fill: transparent;
 `;
 
@@ -67,13 +85,19 @@ export const CatalogItem = styled.li`
 `;
 
 export const List = styled.ul`
+  // display: flex;
+  
+  // align-items: baseline;
+  // gap: 8px;
+  // font-size: 12px;
+  // color: var(--grey-color);
+  // line-height: calc(18 / 12);
+  // margin-top: 4px;
   display: flex;
-  align-items: baseline;
-  gap: 8px;
-  font-size: 12px;
-  color: var(--grey-color);
-  line-height: calc(18 / 12);
-  margin-top: 4px;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  max-width: calc(1440px - 230px);
 `;
 
 export const ListItem = styled.li`
@@ -85,4 +109,35 @@ export const ListItem = styled.li`
     background-color: var(--light-grey-color);
     margin-left: 5px;
   }
+`;
+
+export const LearnBtn = styled.button`
+display: flex;
+width: 274px;
+height: 44px;
+padding: 12px 99px;
+justify-content: center;
+align-items: center;
+flex-shrink: 0;
+border-radius: 12px;
+background: #3470ff;
+border: inherit;
+cursor: pointer;
+position: relative;
+overflow: hidden;
+
+color: var(--White, #fff);
+font-family: Manrope;
+font-size: 14px;
+font-style: normal;
+font-weight: 600;
+line-height: 20px;
+transition: all 5ms var(--transition);
+`;
+
+
+export const FBtn = styled.div`
+position: "absolute",
+top: "6px",
+right: "6px",
 `;

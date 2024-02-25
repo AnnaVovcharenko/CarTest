@@ -1,13 +1,19 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import  Loading  from "../Loader/Loader.jsx";
 
 import { CarGalleryItem } from "../CarGalleryItem/CarGalleryItem.jsx";
 import { fetchCars } from "../../redux/carsOperations.js";
 import { selectCars, selectisLoading  } from "../../redux/carsSelectors.js";
+import { Filter } from "../Filter/Filter.jsx";
+
+
+import {List, ContainerD } from "../CarGalleryItem/CarGalleryItem.styled.jsx";
+
 
 export const CarGallery = () => {
     const dispatch = useDispatch();
-    const cars = useSelector(selectCars);
+    const adverts= useSelector(selectCars);
     const isLoading = useSelector(selectisLoading);
 
     const [filter, setFilter] = useState(null);
@@ -19,13 +25,13 @@ export const CarGallery = () => {
 
 
     const carCatalog = [];
-    for (const car of cars) {
+    for (const car of adverts) {
         const carAdvert = car.make;
         if (carAdvert) {
             carCatalog.push(carAdvert)
         }
     }
-    const filterCar = cars.filter((car) => car.make === filter);
+    const filterCar = adverts.filter((advert) => advert.make === filter);
 
     
 
@@ -44,25 +50,24 @@ const handleLoadMore = () => {
   return (
     <>
       <div onSubmit={handleSearch}>       
-        <input  /> 
-        {/* opts={[...new Set(carMakes)]} */}
-        <button
-          type={"submit"}>
-          Search
-        </button>
+        <Filter/> 
+               
       </div>
-      <div>
+      <ContainerD>
+      <List>
         {filter
           ? filterCar.map((car) => <CarGalleryItem key={car.id} car={car} />)
-          : cars.map((car) => <CarGalleryItem key={car.id} car={car} />)}
-      </div>
+          : adverts.map((car) => <CarGalleryItem key={car.id} car={car} />)}
+      </List>
+      </ContainerD>
+      
       <button
         onClick={handleLoadMore}
         disabled={isLoading}        
       >
         {isLoading ? "Loading..." : "Load more"}
       </button>
-      {/* {isLoading && <Loader />} */}
+      {isLoading && <Loading />}
     </>
   );
 
