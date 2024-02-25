@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { ModalWindow } from "../Modal/Modal";
+// import { ModalWindow } from "../Modal/Modal";
 import PropTypes from "prop-types";
 import { addFavorite, deleteFavorete } from "../../redux/carsSlice";
 import {
